@@ -1,0 +1,99 @@
+/* ========================
+   SELECTOR DE MES
+======================== */
+.mes-titulo {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a1a1a;
+    min-width: 200px;
+    text-align: center;
+}
+
+/* ========================
+   LEYENDA
+======================== */
+.leyenda-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.leyenda-color {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+}
+
+.leyenda-disponible {
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5;
+}
+
+.leyenda-ocupada {
+    background-color: #e74c3c;
+}
+
+.leyenda-mantenimiento {
+    background-color: #f39c12;
+}
+
+/* ========================
+   GRILLA CALENDARIO
+======================== */
+.tabla-calendario {
+    font-size: 12px;
+    table-layout: fixed;
+}
+
+.tabla-calendario th {
+    text-align: center;
+    padding: 8px 2px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #6b7280;
+    background-color: #f9fafb;
+    border: 1px solid #e5e5e5;
+}
+
+.tabla-calendario td {
+    text-align: center;
+    padding: 6px 2px;
+    border: 1px solid #e5e5e5;
+    height: 28px;
+}
+
+.col-habitacion {
+    font-weight: 600;
+    color: #1a1a1a;
+    background-color: #f9fafb !important;
+    width: 70px;
+    position: sticky;
+    left: 0;
+    z-index: 1;
+}
+
+.col-categoria {
+    font-weight: 500;
+    color: #8b7355;
+    background-color: #f9fafb !important;
+    width: 40px;
+    position: sticky;
+    left: 70px;
+    z-index: 1;
+}
+
+/* ========================
+   ESTADOS DE CELDA
+======================== */
+.dia-ocupado {
+    background-color: #e74c3c !important;
+}
+
+.dia-mantenimiento {
+    background-color: #f39c12 !important;
+}
+
+

@@ -1,0 +1,78 @@
+.btn-hotel {
+    background-color: #8b7355;
+    border-color: #8b7355;
+    color: #ffffff;
+    font-weight: 500;
+    padding: 8px 20px;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.btn-hotel:hover {
+    background-color: #6d5a43;
+    border-color: #6d5a43;
+    color: #ffffff;
+}
+
+/*filtros*/
+.form-label-sm {
+    font-size: 13px;
+    font-weight: 500;
+    color: #6b7280;
+}
+
+/*boton de accion de tabla*/
+.btn-accion {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+}
+
+/*MODAL o ventana emergente*/
+.form-section-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #8b7355;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.modal-content {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.modal-header {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 20px 24px;
+}
+
+.modal-title {
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.modal-body {
+    padding: 24px;
+}
+
+.modal-footer {
+    border-top: 1px solid #e5e5e5;
+    padding: 16px 24px;
+}
+
+/*estados*/
+.badge {
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+}
