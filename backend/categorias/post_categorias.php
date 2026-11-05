@@ -1,6 +1,7 @@
 <?php
 
     session_start();
+    header('Access-Control-Allow-Origin: *');
     header('Content-Type: application/json');
 
     require_once('../conexion.php');
