@@ -19,6 +19,7 @@
     $fecha_salida = $_POST["fecha_salida"];
     $observacion = trim($_POST["observacion"]);
     $total = $_POST["total"];
+    $estado = $_POST["estado"];
 
     $sqlCheck = "SELECT id_reserva FROM reservas 
     WHERE id_habitacion = ? AND estado IN ('pendiente','confirmada') 
@@ -31,24 +32,10 @@
 
     if($stmtCheck->num_rows == 0){
         
-        $sql = "UPDATE reservas 
-        SET id_habitacion = ?, 
-        dni = ?, 
-        nombre = ?, 
-        apellido = ?, 
-        telefono = ?, 
-        email = ?, 
-        domicilio = ?, 
-        provincia = ?, 
-        pais = ?, 
-        fecha_entrada = ?, 
-        fecha_salida = ?, 
-        observacion = ?, 
-        total = ? 
-        WHERE id_reserva = ?";
+        $sql = "UPDATE reservas SET id_habitacion = ?, dni = ?, nombre = ?, apellido = ?, telefono = ?, email = ?, domicilio = ?, provincia = ?, pais = ?, fecha_entrada = ?, fecha_salida = ?, observacion = ?, total = ?, estado = ? WHERE id_reserva = ?";
 
         $stmt = $conexion->prepare($sql);
-        $stmt->bind_param("isssssssssssii", $id_habitacion, $dni, $nombre, $apellido, $telefono, $email, $domicilio, $provincia, $pais, $fecha_entrada, $fecha_salida, $observacion, $total, $id);
+        $stmt->bind_param("isssssssssssisi", $id_habitacion, $dni, $nombre, $apellido, $telefono, $email, $domicilio, $provincia, $pais, $fecha_entrada, $fecha_salida, $observacion, $total, $estado, $id);
 
         if ($stmt->execute()) {
             echo json_encode(['exito' => true, 'mensaje' => 'Reserva modificada correctamente']);

@@ -105,7 +105,8 @@
                     fecha_entrada: '',
                     fecha_salida: '',
                     observacion: '',
-                    total: ''
+                    total: '',
+                    estado: 'pendiente'
                 },
                 filtroBuscar: '',
                 filtroEstado: '',
@@ -164,7 +165,7 @@
                     id: '', id_habitacion: '', dni: '', nombre: '', apellido: '',
                     telefono: '', email: '', domicilio: '', provincia: '',
                     pais: 'Argentina', fecha_entrada: '', fecha_salida: '',
-                    observacion: '', total: ''
+                    observacion: '', total: '', estado: 'pendiente'
                 }
                 this.modalReserva = new Modal(document.getElementById('modalReserva'))
                 this.modalReserva.show()
@@ -185,7 +186,8 @@
                     fecha_entrada: res.fecha_entrada,
                     fecha_salida: res.fecha_salida,
                     observacion: res.observacion,
-                    total: res.total
+                    total: res.total,
+                    estado: res.estado
                 }
                 this.modalReserva = new Modal(document.getElementById('modalReserva'))
                 this.modalReserva.show()

@@ -70,6 +70,15 @@
                             <label class="form-label">Observación</label>
                             <textarea class="form-control" :value="form.observacion" @input="actualizar('observacion', $event.target.value)" rows="1"></textarea>
                         </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Estado</label>
+                            <select class="form-select" :value="form.estado" @change="actualizar('estado', $event.target.value)">
+                                <option value="pendiente">Pendiente</option>
+                                <option value="confirmada">Confirmada</option>
+                                <option value="cancelada">Cancelada</option>
+                                <option value="finalizada">Finalizada</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
