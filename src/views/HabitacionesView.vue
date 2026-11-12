@@ -165,23 +165,28 @@ export default {
             },
 
             async guardarHabitacion() {
-                const url = this.form.id
-                    ? 'http://localhost/ProyectoFinal-FedericoErceg/backend/habitaciones/put_habitaciones.php'
-                    : 'http://localhost/ProyectoFinal-FedericoErceg/backend/habitaciones/post_habitaciones.php'
-
-                const res = await fetch(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: new URLSearchParams(this.form)
-                })
-                const data = await res.json()
-
-                if (data.exito) {
-                    const modal = Modal.getInstance(document.getElementById('modalHabitacion'))
-                    modal.hide()
-                    await this.cargarHabitaciones()
-                } else {
-                    alert(data.mensaje)
+                if (!this.form.numero || !this.form.piso || !this.form.id_categoria_habitacion){
+                    alert('Completá todos los campos')
+                }
+                else{
+                    const url = this.form.id
+                        ? 'http://localhost/ProyectoFinal-FedericoErceg/backend/habitaciones/put_habitaciones.php'
+                        : 'http://localhost/ProyectoFinal-FedericoErceg/backend/habitaciones/post_habitaciones.php'
+    
+                    const res = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: new URLSearchParams(this.form)
+                    })
+                    const data = await res.json()
+    
+                    if (data.exito) {
+                        const modal = Modal.getInstance(document.getElementById('modalHabitacion'))
+                        modal.hide()
+                        await this.cargarHabitaciones()
+                    } else {
+                        alert(data.mensaje)
+                    }
                 }
             },
 

@@ -193,31 +193,34 @@
                 this.modalReserva.show()
             },
             async guardarReserva() {
-                // Calcular total antes de enviar
-                const hab = this.habitaciones.find(h => h.id_habitacion == this.form.id_habitacion)
-                if (hab) {
-                    const entrada = new Date(this.form.fecha_entrada)
-                    const salida = new Date(this.form.fecha_salida)
-                    const noches = Math.ceil((salida - entrada) / (1000 * 60 * 60 * 24))
-                    this.form.total = noches * hab.precio_noche
-                }
-
-                const url = this.form.id
-                    ? 'http://localhost/ProyectoFinal-FedericoErceg/backend/reservas/put_reservas.php'
-                    : 'http://localhost/ProyectoFinal-FedericoErceg/backend/reservas/post_reservas.php'
-
-                const res = await fetch(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: new URLSearchParams(this.form)
-                })
-                const data = await res.json()
-
-                if (data.exito) {
-                    this.modalReserva.hide()
-                    await this.cargarReservas()
+                if (!this.form.id_habitacion || !this.form.dni || !this.form.nombre || !this.form.apellido || !this.form.fecha_entrada || !this.form.fecha_salida) {
+                    alert('Completá los campos obligatorios')
                 } else {
-                    alert(data.mensaje)
+                    const hab = this.habitaciones.find(h => h.id_habitacion == this.form.id_habitacion)
+                    if (hab) {
+                        const entrada = new Date(this.form.fecha_entrada)
+                        const salida = new Date(this.form.fecha_salida)
+                        const noches = Math.ceil((salida - entrada) / (1000 * 60 * 60 * 24))
+                        this.form.total = noches * hab.precio_noche
+                    }
+
+                    const url = this.form.id
+                        ? 'http://localhost/ProyectoFinal-FedericoErceg/backend/reservas/put_reservas.php'
+                        : 'http://localhost/ProyectoFinal-FedericoErceg/backend/reservas/post_reservas.php'
+
+                    const res = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: new URLSearchParams(this.form)
+                    })
+                    const data = await res.json()
+
+                    if (data.exito) {
+                        this.modalReserva.hide()
+                        await this.cargarReservas()
+                    } else {
+                        alert(data.mensaje)
+                    }
                 }
             },
             abrirModalEliminar(id) {

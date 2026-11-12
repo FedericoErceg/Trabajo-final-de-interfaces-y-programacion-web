@@ -13,6 +13,9 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <tr v-if="categorias.length === 0">
+                        <td colspan="6" class="text-center text-muted py-4">No hay categorías registradas</td>
+                    </tr>
                     <tr v-for="cat in categorias" :key="cat.id_categoria">
                         <td>{{ cat.id_categoria }}</td>
                         <td>{{ cat.tipo }}</td>

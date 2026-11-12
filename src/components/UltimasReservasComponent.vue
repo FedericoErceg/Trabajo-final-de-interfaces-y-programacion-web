@@ -16,6 +16,9 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <tr v-if="reservas.length === 0">
+                        <td colspan="5" class="text-center text-muted py-4">No hay reservas aún</td>
+                    </tr>
                     <tr v-for="reserva in reservas" :key="reserva.id_reserva">
                         <td>{{ reserva.nombre }} {{ reserva.apellido }}</td>
                         <td>{{ reserva.numero }}</td>

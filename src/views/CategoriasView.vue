@@ -91,22 +91,27 @@
                 this.modalCategoria.show()
             },
             async guardarCategoria() {
-                const url = this.form.id
-                    ? 'http://localhost/ProyectoFinal-FedericoErceg/backend/categorias/put_categorias.php'
-                    : 'http://localhost/ProyectoFinal-FedericoErceg/backend/categorias/post_categorias.php'
-
-                const res = await fetch(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: new URLSearchParams(this.form)
-                })
-                const data = await res.json()
-
-                if (data.exito) {
-                    this.modalCategoria.hide()
-                    await this.cargarCategorias()
-                } else {
-                    alert(data.mensaje)
+                if (!this.form.tipo || !this.form.capacidad || !this.form.precio_noche){
+                    alert('Completá todos los campos')
+                }
+                else{
+                    const url = this.form.id
+                        ? 'http://localhost/ProyectoFinal-FedericoErceg/backend/categorias/put_categorias.php'
+                        : 'http://localhost/ProyectoFinal-FedericoErceg/backend/categorias/post_categorias.php'
+    
+                    const res = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: new URLSearchParams(this.form)
+                    })
+                    const data = await res.json()
+    
+                    if (data.exito) {
+                        this.modalCategoria.hide()
+                        await this.cargarCategorias()
+                    } else {
+                        alert(data.mensaje)
+                    }
                 }
             },
             abrirModalEliminar(id) {
