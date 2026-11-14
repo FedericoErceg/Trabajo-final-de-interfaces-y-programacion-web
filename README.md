@@ -1,38 +1,43 @@
-# ProyectoFinal-FedericoErceg
+# Sistema de Reservas de Hotel
 
-This template should help get you started developing with Vue 3 in Vite.
+Trabajo Final para la materia **Interfaces y Programación Web** - Universidad Atlántida Argentina.
 
-## Recommended IDE Setup
+**Alumno:** Federico Erceg
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Tecnologías utilizadas
 
-## Recommended Browser Setup
+- **Frontend:** Vue.js 3 (Options API), Vue Router, Bootstrap 5, Bootstrap Icons
+- **Backend:** PHP 8 con mysqli (prepared statements)
+- **Base de datos:** MySQL / MariaDB
+- **Autenticación:** Firebase Authentication + Google reCAPTCHA v2
+- **Servidor local:** XAMPP (Apache + MySQL)
+- **Bundler:** Vite
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+## Instalación y ejecución
 
-## Customize configuration
+### 1. Base de datos
+En la carpeta `public/doc/Script SQL/` se encuentra el archivo `hotel_reservas.sql`. Importarlo desde phpMyAdmin o ejecutarlo directamente en MySQL. El script crea la base de datos y las tablas con datos de prueba.
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+### 2. Backend (PHP)
+Iniciar Apache y MySQL desde XAMPP. Los archivos PHP del backend están en la carpeta `backend/`.
 
-## Project Setup
-
-```sh
+### 3. Frontend (Vue)
+```bash
+cd ProyectoFinal-FedericoErceg
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
 ```
+La aplicación corre en `http://localhost:5173`
 
-### Compile and Minify for Production
+### Credenciales de prueba
+- **Email:** prueba@gmail.com
+- **Contraseña:** 123456
 
-```sh
-npm run build
+## Documentación
+
+En la carpeta `public/doc/` se encuentra:
+- **Diagrama relacional** de la base de datos
+- **Script SQL** (`hotel_reservas.sql`) para crear la base de datos de forma local
+
+## Estructura del proyecto
 ```
